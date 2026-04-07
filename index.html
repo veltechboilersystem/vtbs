@@ -621,32 +621,34 @@ footer{background:#0f2348;padding:56px 20px 0}
         <div class="c-det"><div class="c-ico">🗺️</div><div><strong>Directions</strong><span><a href="https://maps.google.com/?q=Thiruneermalai,Chrompet,Chennai+600044" target="_blank">Open in Google Maps →</a></span></div></div>
       </div>
     </div>
-    <div class="c-form reveal">
-      <h3>Send an Enquiry</h3>
-      <div class="fg-row">
-        <div class="fg"><label>Full Name</label><input type="text" id="f-name" placeholder="Your name"/></div>
-        <div class="fg"><label>Phone Number</label><input type="tel" id="f-phone" placeholder="+91 XXXXX XXXXX"/></div>
-      </div>
-      <div class="fg"><label>Company / Organisation</label><input type="text" id="f-company" placeholder="Your company name"/></div>
-      <div class="fg">
-        <label>Service Required</label>
-        <select id="f-service">
-          <option value="">— Select a service —</option>
-          <option>Boiler Erection &amp; Commissioning</option>
-          <option>Steam Boiler Service &amp; Repair</option>
-          <option>Thermic Fluid Heater Systems</option>
-          <option>Turnkey Fabrication &amp; Erection</option>
-          <option>Boiler Pipeline Work (IBR)</option>
-          <option>Pump Service &amp; Insulation Works</option>
-          <option>Annual Maintenance Contract (AMC)</option>
-          <option>Emergency Breakdown Service</option>
-          <option>Other / General Enquiry</option>
-        </select>
-      </div>
-      <div class="fg"><label>Message &amp; Requirements</label><textarea id="f-msg" placeholder="Describe your boiler type, capacity, and specific requirements…"></textarea></div>
-      <button class="btn-sub" onclick="dosubmit()">Submit Enquiry →</button>
-      <div class="form-ok" id="form-ok">✅ Thank you! We'll contact you within 24 hours.</div>
-    </div>
+   <div class="c-form reveal">
+  <h3>Send an Enquiry</h3>
+  <div class="fg-row">
+    <div class="fg"><label>Full Name</label><input type="text" id="f-name" placeholder="Your name"/></div>
+    <div class="fg"><label>Phone Number</label><input type="tel" id="f-phone" placeholder="+91 XXXXX XXXXX"/></div>
+  </div>
+  <div class="fg"><label>Company / Organisation</label><input type="text" id="f-company" placeholder="Your company name"/></div>
+  <div class="fg">
+    <label>Service Required</label>
+    <select id="f-service">
+      <option value="">— Select a service —</option>
+      <option>Boiler Erection &amp; Commissioning</option>
+      <option>Steam Boiler Service &amp; Repair</option>
+      <option>Thermic Fluid Heater Systems</option>
+      <option>Turnkey Fabrication &amp; Erection</option>
+      <option>Boiler Pipeline Work (IBR)</option>
+      <option>Pump Service &amp; Insulation Works</option>
+      <option>Annual Maintenance Contract (AMC)</option>
+      <option>Emergency Breakdown Service</option>
+      <option>Other / General Enquiry</option>
+    </select>
+  </div>
+  <div class="fg"><label>Message &amp; Requirements</label><textarea id="f-msg" placeholder="Describe your boiler type, capacity, and specific requirements…"></textarea></div>
+  
+  <button class="btn-sub" onclick="doSubmit()">Submit Enquiry via WhatsApp →</button>
+  
+  <div class="form-ok" id="form-ok">✅ Thank you! We'll contact you within 24 hours.</div>
+</div>
   </div>
 </section>
 
@@ -802,52 +804,43 @@ function submitModal() {
   // Optional: Auto-close the modal after a delay
   setTimeout(closeQuoteModal, 3000);
 }
+/* ENQUIRY FORM SUBMISSION VIA WHATSAPP */
 function doSubmit() {
-  // 1. Get values from the Contact Form fields (using 'f-' IDs)
+  // 1. Capture the form values
   var name = document.getElementById('f-name').value.trim();
   var phone = document.getElementById('f-phone').value.trim();
   var company = document.getElementById('f-company').value.trim() || "Not provided";
   var service = document.getElementById('f-service').value || "General Enquiry";
-  var msg = document.getElementById('f-msg').value.trim() || "No additional details";
+  var msg = document.getElementById('f-msg').value.trim() || "No details provided";
 
-  // 2. Basic Validation
+  // 2. Validation
   if (!name || !phone) {
     alert('Please enter your name and phone number.');
     return;
   }
 
-  // 3. Construct the WhatsApp Message
-  // Note: 91 is the country code for India
+  // 3. WhatsApp Configuration (91 is the country code for India)
   var whatsappNumber = "919941759745"; 
   
-  var text = "*New Enquiry - VTBS Website*" + "%0a" + 
+  // 4. Create the formatted message
+  var text = "*NEW ENQUIRY - VTBS WEBSITE*" + "%0a%0a" + 
              "*Name:* " + encodeURIComponent(name) + "%0a" +
              "*Phone:* " + encodeURIComponent(phone) + "%0a" +
              "*Company:* " + encodeURIComponent(company) + "%0a" +
              "*Service:* " + encodeURIComponent(service) + "%0a" +
              "*Message:* " + encodeURIComponent(msg);
 
-  // 4. Create the WhatsApp URL
+  // 5. Open WhatsApp
   var wpUrl = "https://wa.me/" + whatsappNumber + "?text=" + text;
-
-  // 5. Open WhatsApp in a new tab
   window.open(wpUrl, '_blank').focus();
 
-  // 6. Show success message on the website
-  var successMsg = document.getElementById('form-ok');
-  if(successMsg) {
-    successMsg.style.display = 'block';
-  }
-
-  // 7. Clear the fields
-  ['f-name', 'f-phone', 'f-company', 'f-msg'].forEach(function(id) {
-    var field = document.getElementById(id);
-    if(field) field.value = '';
-  });
+  // 6. Show the "Thank You" message and clear the form
+  document.getElementById('form-ok').style.display = 'block';
   
-  // Reset the dropdown
-  var serviceField = document.getElementById('f-service');
-  if(serviceField) serviceField.value = '';
+  ['f-name', 'f-phone', 'f-company', 'f-msg'].forEach(function(id) {
+    document.getElementById(id).value = '';
+  });
+  document.getElementById('f-service').value = '';
 }
 /* ── SCROLL REVEAL ── */
 var obs=new IntersectionObserver(function(entries){
