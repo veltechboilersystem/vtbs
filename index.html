@@ -12,122 +12,37 @@ body{font-family:'Open Sans',sans-serif;color:#333;background:#fff;overflow-x:hi
 a{text-decoration:none;color:inherit}
 img{max-width:100%;display:block}
 
-/* ─── TOP INFO BAR ─── */
-.topbar{
-  background:#1a3a6b;
-  padding:8px 0;
-  font-size:13px;
-  color:rgba(255,255,255,.85);
-}
-.topbar-inner{
-  max-width:1200px;margin:0 auto;padding:0 20px;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;
-}
-.topbar a{color:rgba(255,255,255,.85);transition:color .2s}
-.topbar a:hover{color:#f5a623}
-.topbar-left,.topbar-right{display:flex;align-items:center;gap:20px}
-.topbar-item{display:flex;align-items:center;gap:6px}
-.topbar-item svg{opacity:.75}
-
 /* ─── NAVBAR ─── */
-nav{
-  background:#fff;
-  border-bottom:3px solid #e8282a;
-  box-shadow:0 2px 10px rgba(0,0,0,.08);
-  position:sticky;top:0;z-index:999;
-}
-.nav-inner{
-  max-width:1200px;margin:0 auto;padding:0 20px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.nav-logo{
-  display:flex;align-items:center;gap:14px;
-  padding:12px 0;
-}
-.logo-box{
-  width:52px;height:52px;border-radius:8px;
-  background:linear-gradient(135deg,#e8282a,#c01a1c);
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Raleway',sans-serif;font-size:14px;font-weight:900;
-  color:#fff;letter-spacing:1px;
-  box-shadow:0 3px 10px rgba(232,40,42,.3);
-  flex-shrink:0;
-}
+nav{background:#fff;border-bottom:3px solid #e8282a;box-shadow:0 2px 10px rgba(0,0,0,.08);position:sticky;top:0;z-index:999}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between;position:relative}
+.nav-logo{display:flex;align-items:center;gap:14px;padding:12px 0}
+.logo-box{width:52px;height:52px;border-radius:8px;background:linear-gradient(135deg,#e8282a,#c01a1c);display:flex;align-items:center;justify-content:center;font-family:'Raleway',sans-serif;font-size:14px;font-weight:900;color:#fff;letter-spacing:1px;box-shadow:0 3px 10px rgba(232,40,42,.3);flex-shrink:0}
 .logo-text .name{font-family:'Raleway',sans-serif;font-size:17px;font-weight:800;color:#1a3a6b;line-height:1.2}
 .logo-text .tagline{font-size:11px;color:#888;letter-spacing:.8px;text-transform:uppercase}
 .nav-menu{display:flex;align-items:center;gap:0;list-style:none}
 .nav-menu>li{position:relative}
-.nav-menu>li>a{
-  display:block;padding:22px 16px;
-  font-size:13.5px;font-weight:600;color:#333;
-  transition:color .2s;white-space:nowrap;
-  border-bottom:3px solid transparent;
-  margin-bottom:-3px;
-}
-.nav-menu>li>a:hover,.nav-menu>li>a.active{color:#e8282a;border-bottom-color:#e8282a}
-.nav-menu>li>a .arr{font-size:9px;margin-left:4px;opacity:.6}
-/* dropdown */
-.dropdown{
-  position:absolute;top:100%;left:0;
-  background:#fff;
-  min-width:240px;
-  border-top:3px solid #e8282a;
-  box-shadow:0 8px 30px rgba(0,0,0,.12);
-  opacity:0;visibility:hidden;
-  transform:translateY(8px);
-  transition:all .25s;
-  z-index:100;
-}
-.nav-menu>li:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0)}
-.dropdown li{list-style:none;border-bottom:1px solid #f0f0f0}
-.dropdown li:last-child{border-bottom:none}
-.dropdown li a{
-  display:block;padding:11px 18px;
-  font-size:13px;color:#444;transition:all .2s;
-}
-.dropdown li a:hover{color:#e8282a;background:#fef5f5;padding-left:24px}
-.nav-quote{
-  background:#e8282a;color:#fff;
-  padding:10px 22px;border-radius:4px;
-  font-size:13px;font-weight:700;
-  white-space:nowrap;
-  transition:background .2s;
-  box-shadow:0 3px 10px rgba(232,40,42,.3);
-}
+.nav-menu>li>a{display:block;padding:22px 16px;font-size:13.5px;font-weight:600;color:#333;transition:color .2s;white-space:nowrap;border-bottom:3px solid transparent;margin-bottom:-3px}
+.nav-menu>li>a:hover{color:#e8282a;border-bottom-color:#e8282a}
+.nav-quote{background:#e8282a;color:#fff;padding:10px 22px;border-radius:4px;font-size:13px;font-weight:700;white-space:nowrap;transition:background .2s;box-shadow:0 3px 10px rgba(232,40,42,.3);cursor:pointer;border:none;font-family:'Open Sans',sans-serif}
 .nav-quote:hover{background:#c01a1c}
+
+/* ─── HAMBURGER ─── */
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;cursor:pointer;padding:6px;border-radius:6px;transition:background .2s;background:none;border:none}
+.nav-hamburger:hover{background:#f0f0f0}
+.nav-hamburger span{display:block;height:2.5px;width:100%;border-radius:2px;background:#1a3a6b;transition:all .3s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
 
 /* ─── HERO SLIDER ─── */
 .hero{position:relative;overflow:hidden;height:520px}
-.slide{
-  position:absolute;inset:0;
-  opacity:0;transition:opacity .8s ease;
-}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease}
 .slide.active{opacity:1;z-index:1}
-.slide-bg{
-  position:absolute;inset:0;
-  background-size:cover;background-position:center;
-}
-.slide-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to right,rgba(13,27,60,.88) 0%,rgba(13,27,60,.55) 55%,rgba(13,27,60,.15) 100%);
-}
-.slide-content{
-  position:relative;z-index:2;height:100%;
-  display:flex;flex-direction:column;justify-content:center;
-  padding:0 100px;max-width:700px;
-}
-.slide-tag{
-  display:inline-block;background:#e8282a;color:#fff;
-  font-size:11px;font-weight:700;letter-spacing:2px;
-  text-transform:uppercase;padding:5px 14px;border-radius:3px;
-  margin-bottom:18px;
-}
-.slide-content h1{
-  font-family:'Raleway',sans-serif;
-  font-size:clamp(30px,4vw,50px);font-weight:900;
-  color:#fff;line-height:1.15;margin-bottom:14px;
-  letter-spacing:-.5px;
-}
+.slide-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.slide-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(13,27,60,.88) 0%,rgba(13,27,60,.55) 55%,rgba(13,27,60,.15) 100%)}
+.slide-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 100px;max-width:700px}
+.slide-tag{display:inline-block;background:#e8282a;color:#fff;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:3px;margin-bottom:18px}
+.slide-content h1{font-family:'Raleway',sans-serif;font-size:clamp(30px,4vw,50px);font-weight:900;color:#fff;line-height:1.15;margin-bottom:14px;letter-spacing:-.5px}
 .slide-content h1 span{color:#f5a623}
 .slide-content p{font-size:15px;color:rgba(255,255,255,.8);line-height:1.75;margin-bottom:28px;max-width:480px}
 .slide-btns{display:flex;gap:12px;flex-wrap:wrap}
@@ -135,49 +50,24 @@ nav{
 .btn-red:hover{background:#c01a1c;transform:translateY(-1px)}
 .btn-white{background:transparent;color:#fff;padding:12px 28px;border-radius:4px;font-size:14px;font-weight:600;border:2px solid rgba(255,255,255,.5);transition:all .2s}
 .btn-white:hover{border-color:#fff;background:rgba(255,255,255,.08)}
-/* slider controls */
-.slider-dots{
-  position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
-  z-index:5;display:flex;gap:8px;
-}
+.slider-dots{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:8px}
 .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:all .3s}
 .dot.active{background:#e8282a;width:28px;border-radius:5px}
-.slider-arrow{
-  position:absolute;top:50%;transform:translateY(-50%);
-  z-index:5;background:rgba(255,255,255,.15);
-  border:1px solid rgba(255,255,255,.25);
-  width:44px;height:44px;border-radius:50%;
-  cursor:pointer;display:flex;align-items:center;justify-content:center;
-  color:#fff;font-size:18px;transition:all .2s;
-  backdrop-filter:blur(4px);
-}
+.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;transition:all .2s;backdrop-filter:blur(4px)}
 .slider-arrow:hover{background:rgba(232,40,42,.7)}
 .arrow-prev{left:20px}
 .arrow-next{right:20px}
 
-/* ─── STATS STRIP ─── */
+/* ─── STATS ─── */
 .stats-strip{background:#1a3a6b;padding:0}
-.stats-inner{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(4,1fr);
-}
-.stat-box{
-  padding:22px 20px;text-align:center;
-  border-right:1px solid rgba(255,255,255,.12);
-  position:relative;
-}
-.stat-box:hover {
-    transform: translateY(-10px); /* Lifts the box up */
-    filter: drop-shadow(0px 10px 15px rgba(255, 255, 255, 0.1));
-  }
-  .stat-box:hover .stat-num {
-    color: #ffffff; /* Changes color on hover */
-  }
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-box{padding:22px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.12);transition:transform .3s}
+.stat-box:hover{transform:translateY(-8px)}
 .stat-box:last-child{border-right:none}
 .stat-num{font-family:'Raleway',sans-serif;font-size:36px;font-weight:900;color:#f5a623;line-height:1}
 .stat-lbl{font-size:11px;color:rgba(255,255,255,.6);letter-spacing:1.2px;text-transform:uppercase;margin-top:5px;font-weight:600}
 
-/* ─── INTRO SECTION ─── */
+/* ─── INTRO ─── */
 .intro{padding:70px 20px;background:#fff}
 .intro-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
 .intro-label{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#e8282a;margin-bottom:10px}
@@ -189,12 +79,7 @@ nav{
 .intro-check::before{content:'✔';color:#e8282a;font-size:13px;flex-shrink:0}
 .intro-img{position:relative;border-radius:10px;overflow:hidden}
 .intro-img img{width:100%;height:380px;object-fit:cover;border-radius:10px;filter:brightness(.95)}
-.intro-img-badge{
-  position:absolute;bottom:20px;right:20px;
-  background:#fff;border:1px solid #e0e0e0;
-  border-radius:8px;padding:14px 18px;text-align:center;
-  box-shadow:0 4px 20px rgba(0,0,0,.12);
-}
+.intro-img-badge{position:absolute;bottom:20px;right:20px;background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:14px 18px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.12)}
 .intro-img-badge .big{font-family:'Raleway',sans-serif;font-size:30px;font-weight:900;color:#1a3a6b;line-height:1}
 .intro-img-badge .sm{font-size:11px;color:#888;letter-spacing:.8px;text-transform:uppercase;margin-top:3px}
 
@@ -206,126 +91,53 @@ nav{
 .sec-hdr p{font-size:14.5px;color:#777;max-width:600px;margin:0 auto;line-height:1.8}
 .sec-divider{width:50px;height:3px;background:#e8282a;margin:14px auto 0;border-radius:2px}
 
-/* ─── SERVICES CARDS ─── */
+/* ─── SERVICES ─── */
 .services-sec{padding:70px 20px;background:#f7f9fc}
-.svc-grid{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
-}
-.svc-card{
-  background:#fff;border:1px solid #e8e8e8;border-radius:8px;
-  padding:32px 26px;transition:all .28s;position:relative;overflow:hidden;
-}
-.svc-card::before{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
-  background:#e8282a;transform:scaleX(0);transform-origin:left;transition:transform .3s;
-}
+.svc-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc-card{background:#fff;border:1px solid #e8e8e8;border-radius:8px;padding:32px 26px;transition:all .28s;position:relative;overflow:hidden}
+.svc-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:#e8282a;transform:scaleX(0);transform-origin:left;transition:transform .3s}
 .svc-card:hover{box-shadow:0 10px 40px rgba(26,58,107,.1);transform:translateY(-4px);border-color:#d0d8e8}
 .svc-card:hover::before{transform:scaleX(1)}
-.svc-icon-wrap{
-  width:58px;height:58px;border-radius:10px;
-  background:#fef0f0;border:1px solid #fcd0d0;
-  display:flex;align-items:center;justify-content:center;
-  font-size:26px;margin-bottom:18px;transition:background .3s;
-}
+.svc-icon-wrap{width:58px;height:58px;border-radius:10px;background:#fef0f0;border:1px solid #fcd0d0;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px;transition:background .3s}
 .svc-card:hover .svc-icon-wrap{background:#e8282a}
 .svc-num{font-size:11px;font-weight:700;letter-spacing:1.5px;color:#bbb;text-transform:uppercase;margin-bottom:10px}
 .svc-card h3{font-family:'Raleway',sans-serif;font-size:17px;font-weight:800;color:#1a3a6b;margin-bottom:10px}
 .svc-card p{font-size:13.5px;color:#777;line-height:1.75}
-.svc-more{
-  display:inline-flex;align-items:center;gap:6px;
-  margin-top:16px;font-size:13px;font-weight:700;color:#e8282a;
-  transition:gap .2s;
-}
-.svc-more:hover{gap:10px}
 
-/* ─── BOILER IMAGE BANNER ─── */
-.img-banner{
-  height:340px;position:relative;overflow:hidden;
-  background:url('https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1600&q=85') center/cover no-repeat fixed;
-}
-.img-banner-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(13,27,60,.85),rgba(232,40,42,.5));
-}
-.img-banner-content{
-  position:relative;z-index:2;height:100%;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:20px;
-}
+/* ─── IMAGE BANNER ─── */
+.img-banner{height:340px;position:relative;overflow:hidden;background:url('https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=1600&q=85') center/cover no-repeat fixed}
+.img-banner-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,27,60,.85),rgba(232,40,42,.5))}
+.img-banner-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
 .img-banner-content h2{font-family:'Raleway',sans-serif;font-size:clamp(24px,4vw,40px);font-weight:900;color:#fff;margin-bottom:12px}
 .img-banner-content p{font-size:15px;color:rgba(255,255,255,.8);max-width:560px;line-height:1.8;margin-bottom:24px}
 
 /* ─── INDUSTRIES ─── */
 .industries-sec{padding:70px 20px;background:#fff}
-.ind-grid{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
-}
-.ind-card{
-  border:1px solid #e8e8e8;border-radius:8px;overflow:hidden;
-  transition:all .28s;
-}
+.ind-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.ind-card{border:1px solid #e8e8e8;border-radius:8px;overflow:hidden;transition:all .28s}
 .ind-card:hover{box-shadow:0 8px 30px rgba(26,58,107,.1);transform:translateY(-3px)}
-.ind-img{height:160px;overflow:hidden}
-.ind-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.ind-card:hover .ind-img img{transform:scale(1.06)}
 .ind-body{padding:16px 18px;background:#fff}
 .ind-body h3{font-family:'Raleway',sans-serif;font-size:15px;font-weight:800;color:#1a3a6b;margin-bottom:6px}
 .ind-body p{font-size:12.5px;color:#888;line-height:1.65}
-.ind-link{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:12px;font-weight:700;color:#e8282a;margin-top:8px;
-  transition:gap .2s;
-}
-.ind-link:hover{gap:9px}
 
 /* ─── WHY US ─── */
 .why-sec{padding:70px 20px;background:#f7f9fc}
 .why-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
 .why-img{border-radius:10px;overflow:hidden;position:relative}
 .why-img img{width:100%;height:420px;object-fit:cover;filter:brightness(.88)}
-.why-cert{
-  position:absolute;top:20px;right:20px;
-  background:#fff;border-radius:8px;padding:14px 18px;
-  text-align:center;box-shadow:0 4px 18px rgba(0,0,0,.13);
-  border-top:3px solid #e8282a;
-}
+.why-cert{position:absolute;top:20px;right:20px;background:#fff;border-radius:8px;padding:14px 18px;text-align:center;box-shadow:0 4px 18px rgba(0,0,0,.13);border-top:3px solid #e8282a}
 .why-cert .c-num{font-family:'Raleway',sans-serif;font-size:26px;font-weight:900;color:#e8282a}
 .why-cert .c-lbl{font-size:10px;color:#999;letter-spacing:.8px;text-transform:uppercase;margin-top:2px}
 .why-list{display:flex;flex-direction:column;gap:16px;margin-top:28px}
 .why-item{display:flex;gap:14px;align-items:flex-start;padding:16px;background:#fff;border:1px solid #e8e8e8;border-radius:8px;transition:border-color .2s}
 .why-item:hover{border-color:#e8282a}
-.why-no{
-  width:34px;height:34px;flex-shrink:0;border-radius:6px;
-  background:#e8282a;color:#fff;
-  display:flex;align-items:center;justify-content:center;
-  font-family:'Raleway',sans-serif;font-size:13px;font-weight:800;
-}
+.why-no{width:34px;height:34px;flex-shrink:0;border-radius:6px;background:#e8282a;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Raleway',sans-serif;font-size:13px;font-weight:800}
 .why-text h4{font-size:14px;font-weight:700;color:#1a3a6b;margin-bottom:3px}
 .why-text p{font-size:13px;color:#888;line-height:1.65}
-
-/* ─── BOILER GALLERY ─── */
-.gallery-sec{padding:70px 20px;background:#1a3a6b}
-.gallery-sec .sec-hdr .lbl{color:#f5a623}
-.gallery-sec .sec-hdr h2{color:#fff}
-.gallery-sec .sec-hdr p{color:rgba(255,255,255,.6)}
-.gallery-sec .sec-divider{background:#f5a623}
-.gal-grid{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:200px 200px;gap:10px;
-}
-.gal-cell{border-radius:6px;overflow:hidden;position:relative}
-.gal-cell img{width:100%;height:100%;object-fit:cover;transition:transform .4s;filter:brightness(.85)}
-.gal-cell:hover img{transform:scale(1.06);filter:brightness(1)}
-.gal-cell.tall{grid-row:span 2}
-.gal-cell.wide{grid-column:span 2}
-.gal-cap{position:absolute;bottom:0;left:0;right:0;padding:20px 14px 10px;background:linear-gradient(transparent,rgba(0,0,0,.7));font-size:12px;color:rgba(255,255,255,.85);font-weight:600}
 
 /* ─── CONTACT ─── */
 .contact-sec{padding:70px 20px;background:#fff}
 .contact-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:5fr 6fr;gap:56px;align-items:start}
-/* .c-side{} */
 .c-detail-list{display:flex;flex-direction:column;gap:14px;margin-top:24px}
 .c-det{display:flex;gap:14px;align-items:flex-start;padding:16px;background:#f7f9fc;border:1px solid #e8e8e8;border-radius:8px;transition:border-color .2s}
 .c-det:hover{border-color:#e8282a}
@@ -337,36 +149,19 @@ nav{
 .c-form h3{font-family:'Raleway',sans-serif;font-size:22px;font-weight:800;color:#1a3a6b;margin-bottom:22px;padding-bottom:14px;border-bottom:2px solid #e8282a}
 .fg{margin-bottom:14px}
 .fg label{display:block;font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:#999;margin-bottom:6px}
-.fg input,.fg textarea,.fg select{
-  width:100%;padding:11px 14px;background:#fff;
-  border:1.5px solid #ddd;border-radius:6px;
-  font-size:14px;font-family:'Open Sans',sans-serif;color:#333;transition:all .2s;
-}
+.fg input,.fg textarea,.fg select{width:100%;padding:11px 14px;background:#fff;border:1.5px solid #ddd;border-radius:6px;font-size:14px;font-family:'Open Sans',sans-serif;color:#333;transition:all .2s}
 .fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:#e8282a;box-shadow:0 0 0 3px rgba(232,40,42,.08)}
 .fg input::placeholder,.fg textarea::placeholder{color:#bbb}
 .fg select option{background:#fff}
 .fg textarea{resize:vertical;min-height:100px}
 .fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.btn-sub{
-  width:100%;padding:13px;
-  background:#e8282a;color:#fff;
-  border:none;border-radius:6px;
-  font-size:15px;font-weight:700;font-family:'Open Sans',sans-serif;
-  cursor:pointer;transition:all .2s;
-  box-shadow:0 4px 14px rgba(232,40,42,.3);
-}
+.btn-sub{width:100%;padding:13px;background:#e8282a;color:#fff;border:none;border-radius:6px;font-size:15px;font-weight:700;font-family:'Open Sans',sans-serif;cursor:pointer;transition:all .2s;box-shadow:0 4px 14px rgba(232,40,42,.3)}
 .btn-sub:hover{background:#c01a1c;transform:translateY(-1px)}
 .form-ok{display:none;margin-top:12px;padding:12px;background:#edf7f0;border:1px solid #a8dcba;border-radius:6px;font-size:14px;color:#1e7040;text-align:center}
 
 /* ─── FOOTER ─── */
 footer{background:#0f2348;padding:56px 20px 0}
-.footer-grid{
-  max-width:1200px;margin:0 auto;
-  display:grid;grid-template-columns:2.2fr 1.2fr 1.2fr 1.4fr;gap:40px;
-  padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08);
-  margin-bottom:0;
-}
-.f-about .logo-box{margin-bottom:14px;width:50px;height:50px;font-size:13px}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2.2fr 1.2fr 1.2fr 1.4fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
 .f-about .f-name{font-family:'Raleway',sans-serif;font-size:17px;font-weight:800;color:#fff;margin-bottom:10px}
 .f-about p{font-size:13px;color:rgba(255,255,255,.45);line-height:1.85;max-width:270px}
 .f-col h4{font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#fff;margin-bottom:18px;padding-bottom:10px;border-bottom:2px solid #e8282a;display:inline-block}
@@ -378,126 +173,180 @@ footer{background:#0f2348;padding:56px 20px 0}
 .f-contact-item svg{flex-shrink:0;margin-top:2px;opacity:.6}
 .f-contact-item a{color:rgba(255,255,255,.5)}
 .f-contact-item a:hover{color:#f5a623}
-.footer-bottom{
-  max-width:1200px;margin:0 auto;
-  padding:18px 0;
-  display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px;
-}
+.footer-bottom{max-width:1200px;margin:0 auto;padding:18px 0;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px}
 .footer-bottom p{font-size:12px;color:rgba(255,255,255,.3)}
-.footer-bottom a{color:#f5a623}
 
-/* ─── FLOATING CTA ─── */
-.float-cta{
-  position:fixed;bottom:28px;right:28px;z-index:998;
-  background:#e8282a;color:#fff;
-  width:52px;height:52px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:22px;
-  box-shadow:0 4px 20px rgba(232,40,42,.45);
-  transition:all .25s;
-}
+/* ─── FLOAT BUTTON ─── */
+.float-cta{position:fixed;bottom:28px;right:28px;z-index:998;background:#e8282a;color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 20px rgba(232,40,42,.45);transition:all .25s}
 .float-cta:hover{background:#c01a1c;transform:scale(1.08)}
 
 /* ─── ANIMATIONS ─── */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .revealed{opacity:1;transform:translateY(0)}
 
-/* ─── RESPONSIVE ─── */
+/* ─── MODAL ─── */
+.modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(13,27,60,0.9);z-index:2000;backdrop-filter:blur(8px);overflow-y:auto}
+.modal-content{background:#fff;width:95%;max-width:550px;margin:5vh auto 5vh;padding:40px;border-radius:12px;position:relative;box-shadow:0 20px 50px rgba(0,0,0,0.3);animation:modalSlideUp 0.4s ease}
+@keyframes modalSlideUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-close{position:absolute;top:14px;right:18px;font-size:28px;cursor:pointer;color:#888;transition:color .2s;line-height:1}
+.modal-close:hover{color:#e8282a}
+.modal-content h3{font-family:'Raleway',sans-serif;font-size:22px;color:#1a3a6b;margin-bottom:8px;padding-bottom:10px;border-bottom:3px solid #e8282a;display:inline-block}
+.modal-content .fg label{color:#555}
+
+/* ══════════════════════════════
+   TABLET  (≤ 1024px)
+══════════════════════════════ */
 @media(max-width:1024px){
   .svc-grid{grid-template-columns:repeat(2,1fr)}
   .ind-grid{grid-template-columns:repeat(2,1fr)}
   .intro-inner,.why-inner,.contact-inner{grid-template-columns:1fr;gap:36px}
   .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
-  .gal-grid{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}
-  .gal-cell.tall,.gal-cell.wide{grid-row:span 1;grid-column:span 1}
   .stats-inner{grid-template-columns:repeat(2,1fr)}
+  .why-img img{height:340px}
+  .slide-content{padding:0 48px}
 }
-@media(max-width:640px){
-  .nav-menu{display:none}
-  .svc-grid,.ind-grid{grid-template-columns:1fr}
+
+/* ══════════════════════════════
+   MOBILE  (≤ 768px)
+══════════════════════════════ */
+@media(max-width:768px){
+
+  /* NAVBAR */
+  .nav-hamburger{display:flex}
+  .nav-inner{padding:0 14px}
+  .nav-quote{display:none}
+  .nav-menu{
+    display:none;
+    position:absolute;
+    top:100%;left:0;right:0;
+    background:#fff;
+    flex-direction:column;gap:0;
+    border-top:2px solid #f0f0f0;
+    border-bottom:3px solid #e8282a;
+    box-shadow:0 8px 24px rgba(0,0,0,.12);
+    z-index:200;
+  }
+  .nav-menu.open{display:flex}
+  .nav-menu>li{width:100%}
+  .nav-menu>li>a{
+    padding:15px 20px;
+    font-size:14px;
+    border-bottom:1px solid #f0f0f0;
+    border-bottom-color:#f0f0f0 !important;
+    margin-bottom:0;
+    color:#333;
+  }
+  .nav-menu>li:last-child>a{border-bottom:none !important}
+
+  /* LOGO */
+  .logo-box{width:40px;height:40px;font-size:11px}
+  .logo-text .name{font-size:13px}
+  .logo-text .tagline{font-size:9px}
+
+  /* HERO */
+  .hero{height:auto;min-height:400px}
+  .slide-content{padding:56px 18px 68px;max-width:100%}
+  .slide-content h1{font-size:clamp(20px,6vw,32px);margin-bottom:8px}
+  .slide-content p{font-size:13px;margin-bottom:16px;max-width:100%}
+  .slide-tag{font-size:10px;padding:4px 10px;margin-bottom:10px}
+  .slide-btns{gap:8px}
+  .btn-red,.btn-white{padding:10px 16px;font-size:13px}
+  .slider-arrow{width:32px;height:32px;font-size:14px}
+  .arrow-prev{left:8px}
+  .arrow-next{right:8px}
+  .slider-dots{bottom:14px}
+
+  /* STATS */
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  .stat-box{padding:16px 10px}
+  .stat-num{font-size:26px}
+  .stat-lbl{font-size:10px}
+
+  /* INTRO */
+  .intro{padding:40px 16px}
+  .intro-inner{gap:24px}
+  .intro h2{font-size:22px}
+  .intro-body{font-size:13.5px}
+  .intro-img img{height:230px}
+  .intro-img-badge{padding:10px 12px}
+  .intro-img-badge .big{font-size:22px}
+
+  /* SECTION HEADER */
+  .sec-hdr{margin-bottom:26px}
+  .sec-hdr h2{font-size:22px}
+  .sec-hdr p{font-size:13px}
+
+  /* SERVICES */
+  .services-sec{padding:40px 16px}
+  .svc-grid{grid-template-columns:1fr;gap:14px}
+  .svc-card{padding:20px 16px}
+  .svc-card h3{font-size:15px}
+  .svc-icon-wrap{width:48px;height:48px;font-size:22px}
+
+  /* IMAGE BANNER */
+  .img-banner{height:auto;min-height:auto;background-attachment:scroll;padding:48px 16px}
+  .img-banner-content h2{font-size:20px}
+  .img-banner-content p{font-size:13px}
+
+  /* INDUSTRIES */
+  .industries-sec{padding:40px 16px}
+  .ind-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .ind-body{padding:12px}
+  .ind-body h3{font-size:13.5px}
+  .ind-body p{font-size:12px}
+
+  /* WHY US */
+  .why-sec{padding:40px 16px}
+  .why-inner{gap:24px}
+  .why-img img{height:220px}
+  .why-cert{top:10px;right:10px;padding:10px 12px}
+  .why-cert .c-num{font-size:18px}
+  .why-list{gap:10px;margin-top:16px}
+  .why-item{padding:12px}
+  .why-no{width:28px;height:28px;font-size:11px}
+  .why-text h4{font-size:13px}
+  .why-text p{font-size:12.5px}
+
+  /* CONTACT */
+  .contact-sec{padding:40px 16px}
+  .contact-inner{gap:24px}
+  .c-form{padding:20px 14px}
+  .c-form h3{font-size:17px}
   .fg-row{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr}
-  .stats-inner{grid-template-columns:1fr 1fr}
-  .slide-content{padding:0 24px}
-  .hero{height:420px}
-  .topbar-left{display:none}
-}
-/* --- QUOTE MODAL STYLES --- */
-.modal-overlay {
-  display: none; 
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(13, 27, 60, 0.9); /* Matches your hero overlay */
-  z-index: 2000;
-  backdrop-filter: blur(8px);
-}
+  .c-det{padding:12px}
+  .c-ico{width:34px;height:34px;font-size:14px}
+  .c-det strong{font-size:10px}
+  .c-det span{font-size:13px}
+  .c-detail-list{gap:10px;margin-top:14px}
 
-.modal-content {
-  background: #fff;
-  width: 95%;
-  max-width: 550px;
-  margin: 5vh auto;
-  padding: 40px;
-  border-radius: 12px;
-  position: relative;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-  animation: modalSlideUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  /* FOOTER */
+  footer{padding:32px 16px 0}
+  .footer-grid{grid-template-columns:1fr;gap:22px}
+  .f-about p{max-width:100%}
+  .footer-bottom{padding:14px 0}
+
+  /* MODAL */
+  .modal-content{padding:22px 16px;margin:6vh auto 4vh;width:94%}
+  .modal-content h3{font-size:18px}
+  .fg-row{grid-template-columns:1fr}
+
+  /* FLOAT BUTTON */
+  .float-cta{bottom:16px;right:16px;width:46px;height:46px;font-size:18px}
 }
 
-@keyframes modalSlideUp {
-  from { transform: translateY(40px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+/* ══════════════════════════════
+   SMALL PHONES  (≤ 400px)
+══════════════════════════════ */
+@media(max-width:400px){
+  .ind-grid{grid-template-columns:1fr}
+  .stat-num{font-size:22px}
+  .slide-content h1{font-size:19px}
+  .logo-text .tagline{display:none}
+  .logo-text .name{font-size:12.5px}
 }
-
-.modal-close {
-  position: absolute;
-  top: 15px; right: 20px;
-  font-size: 30px;
-  cursor: pointer;
-  color: #888;
-  transition: color 0.2s;
-}
-
-.modal-close:hover { color: #e8282a; }
-
-.modal-content h3 {
-  font-family: 'Raleway', sans-serif;
-  font-size: 24px;
-  color: #1a3a6b;
-  margin-bottom: 10px;
-  border-bottom: 3px solid #e8282a;
-  display: inline-block;
-}
-
-/* Ensure the modal form matches your contact form style */
-.modal-content .fg label { color: #1a3a6b; }
-.modal-content .btn-sub { margin-top: 10px; }
 </style>
 </head>
 <body>
-
-<!-- TOP BAR -->
-<!-- <div class="topbar">
-  <div class="topbar-inner">
-    <div class="topbar-left">
-      <div class="topbar-item">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        2nd Floor, No.5, Arignar Anna Street, Thiruneermalai, Chrompet, Chennai – 600 044
-      </div>
-    </div>
-    <div class="topbar-right">
-      <div class="topbar-item">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        <a href="tel:9941759745">+91 99417 59745</a>
-      </div>
-      <div class="topbar-item">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        <a href="mailto:vtbs@vtbschennai.com">vtbs@vtbschennai.com</a>
-      </div>
-    </div>
-  </div>
-</div> -->
 
 <!-- NAVBAR -->
 <nav>
@@ -509,45 +358,25 @@ footer{background:#0f2348;padding:56px 20px 0}
         <div class="tagline">Specialist in Boiler Erection &amp; Commissioning</div>
       </div>
     </a>
-    <ul class="nav-menu">
-      <li><a href="#">Home</a></li>
-      <li><a href="#about">About Us</a></li>
-      <li>
-        <a href="#services">Our Services <span class="arr"></span></a>
-        <!-- <ul class="dropdown">
-          <li><a href="#services">Boiler Erection &amp; Commissioning</a></li>
-          <li><a href="#services">Steam Boiler Service &amp; Repair</a></li>
-          <li><a href="#services">Thermic Fluid Heater Systems</a></li>
-          <li><a href="#services">Boiler Pipeline Work (IBR)</a></li>
-          <li><a href="#services">Turnkey Fabrication &amp; Erection</a></li>
-          <li><a href="#services">Pump Service &amp; Insulation</a></li>
-          <li><a href="#services">Annual Maintenance Contract</a></li>
-        </ul> -->
-      </li>
-      <li>
-        <a href="#industries">Industries <span class="arr"></span></a>
-        <!-- <ul class="dropdown">
-          <li><a href="#industries">Textile &amp; Garments</a></li>
-          <li><a href="#industries">Food &amp; Beverage</a></li>
-          <li><a href="#industries">Chemical &amp; Pharma</a></li>
-          <li><a href="#industries">Rubber &amp; Plastics</a></li>
-          <li><a href="#industries">Rice Mills &amp; Grain</a></li>
-          <li><a href="#industries">Hotels &amp; Hospitals</a></li>
-          <li><a href="#industries">Engineering &amp; Fabrication</a></li>
-        </ul> -->
-      </li>
-      <!-- <li><a href="#gallery">Gallery</a></li> -->
-      <li><a href="#contact">Contact Us</a></li>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="#" onclick="closeMob()">Home</a></li>
+      <li><a href="#about" onclick="closeMob()">About Us</a></li>
+      <li><a href="#services" onclick="closeMob()">Our Services</a></li>
+      <li><a href="#industries" onclick="closeMob()">Industries</a></li>
+      <li><a href="#contact" onclick="closeMob()">Contact Us</a></li>
     </ul>
-    <a class="nav-quote" onclick="openQuoteModal()">Request a Quote</a>
+    <button class="nav-quote" onclick="openQuoteModal()">Request a Quote</button>
+    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
 <!-- HERO SLIDER -->
 <div class="hero" id="hero">
   <div class="slide active">
-<div class="slide-bg" style="background-image:url('images/image4.jpg')"></div>   
- <div class="slide-overlay"></div>
+    <div class="slide-bg" style="background-image:url('images/image4.jpg')"></div>
+    <div class="slide-overlay"></div>
     <div class="slide-content">
       <div class="slide-tag">Chennai's Trusted Experts</div>
       <h1>Industrial Boiler<br><span>Erection &amp; Commissioning</span></h1>
@@ -559,7 +388,7 @@ footer{background:#0f2348;padding:56px 20px 0}
     </div>
   </div>
   <div class="slide">
-<div class="slide-bg" style="background-image:url('images/image2.jpg')"></div>   
+    <div class="slide-bg" style="background-image:url('images/image2.jpg')"></div>
     <div class="slide-overlay"></div>
     <div class="slide-content">
       <div class="slide-tag">IBR Certified Service</div>
@@ -572,7 +401,7 @@ footer{background:#0f2348;padding:56px 20px 0}
     </div>
   </div>
   <div class="slide">
-<div class="slide-bg" style="background-image:url('images/image5.jpg')"></div>   
+    <div class="slide-bg" style="background-image:url('images/image5.jpg')"></div>
     <div class="slide-overlay"></div>
     <div class="slide-content">
       <div class="slide-tag">Turnkey Solutions</div>
@@ -609,9 +438,7 @@ footer{background:#0f2348;padding:56px 20px 0}
     <div class="reveal">
       <div class="intro-label">Our Introduction</div>
       <h2>Vel Tech <span>Boiler System</span><br>— Chennai</h2>
-      <p class="intro-body">
-        <strong>Vel Tech Boiler System (VTBS)</strong> is a Chennai-based industrial engineering firm specialising in the complete lifecycle of boiler systems. We provide expert erection, commissioning, servicing, and full annual maintenance of steam boilers, thermic fluid heaters, and boiler pipeline systems. With over 15 years of hands-on site experience and 200+ completed projects, VTBS is the trusted single-point partner for industries across Tamil Nadu that demand zero downtime and maximum boiler efficiency.
-      </p>
+      <p class="intro-body"><strong>Vel Tech Boiler System (VTBS)</strong> is a Chennai-based industrial engineering firm specialising in the complete lifecycle of boiler systems. We provide expert erection, commissioning, servicing, and full annual maintenance of steam boilers, thermic fluid heaters, and boiler pipeline systems. With over 15 years of hands-on site experience and 200+ completed projects, VTBS is the trusted single-point partner for industries across Tamil Nadu that demand zero downtime and maximum boiler efficiency.</p>
       <div class="intro-checks">
         <div class="intro-check">IBR (Indian Boiler Regulations) Certified Works</div>
         <div class="intro-check">Erection &amp; Commissioning of All Boiler Types</div>
@@ -645,42 +472,36 @@ footer{background:#0f2348;padding:56px 20px 0}
       <div class="svc-icon-wrap">🔧</div>
       <h3>Boiler Erection &amp; Commissioning</h3>
       <p>Expert installation and commissioning of fire tube, water tube, and package boilers with precision alignment and stage-by-stage safety verifications as per IBR.</p>
-      <!-- <a href="#contact" class="svc-more">Enquire Now →</a> -->
     </div>
     <div class="svc-card reveal">
       <div class="svc-num">02 — Service</div>
       <div class="svc-icon-wrap">♨️</div>
       <h3>Steam Boiler Service &amp; Repair</h3>
       <p>Scheduled preventive maintenance and rapid emergency repair services for all steam boilers — ensuring optimal performance and uninterrupted production.</p>
-      <!-- <a href="#contact" class="svc-more">Enquire Now →</a> -->
     </div>
     <div class="svc-card reveal">
       <div class="svc-num">03 — Service</div>
       <div class="svc-icon-wrap">🌡️</div>
       <h3>Thermic Fluid Heater Systems</h3>
       <p>Supply, erection, commissioning, and full servicing of thermic fluid (hot oil) heating systems for textile, chemical, food, and pharma industries.</p>
-      <!-- <a href="#contact" class="svc-more">Enquire Now →</a> -->
     </div>
     <div class="svc-card reveal">
       <div class="svc-num">04 — Service</div>
       <div class="svc-icon-wrap">🏗️</div>
       <h3>Turnkey Fabrication &amp; Erection</h3>
       <p>End-to-end turnkey contracts — structural fabrication, boiler room construction, platform erection, and all ancillary equipment on a single-responsibility basis.</p>
-      <!-- <a href="#contact" class="svc-more">Enquire Now →</a> -->
     </div>
     <div class="svc-card reveal">
       <div class="svc-num">05 — Service</div>
       <div class="svc-icon-wrap">🔩</div>
       <h3>Boiler Pipeline Work (IBR)</h3>
       <p>Design, fabrication, and IBR-certified installation of steam lines, feed-water piping, blow-down systems, and all fittings, flanges, and valves.</p>
-      <!-- <a href="#contact" class="svc-more">Enquire Now →</a> -->
     </div>
     <div class="svc-card reveal">
       <div class="svc-num">06 — Service</div>
       <div class="svc-icon-wrap">💧</div>
       <h3>Pump Service &amp; Insulation Works</h3>
       <p>Overhauling of feed pumps and condensate pumps; plus professional thermal insulation of boiler bodies, steam pipes, and vessels to minimise heat loss.</p>
-      <!-- <a href="#contact" class="svc-more">Enquire Now →</a> -->
     </div>
   </div>
 </section>
@@ -704,76 +525,20 @@ footer{background:#0f2348;padding:56px 20px 0}
     <div class="sec-divider"></div>
   </div>
   <div class="ind-grid">
-    <div class="ind-card reveal">
-      <!-- <div class="ind-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="Textile industry"/></div> -->
-      <div class="ind-body">
-        <h3>Textile &amp; Garments</h3>
-        <p>Steam supply for dyeing, drying, and calendering in textile mills.</p>
-        <!-- <a href="#contact" class="ind-link">Read More →</a> -->
-      </div>
-    </div>
-    <div class="ind-card reveal">
-      <!-- <div class="ind-img"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&q=80" alt="Food industry"/></div> -->
-      <div class="ind-body">
-        <h3>Food &amp; Beverage</h3>
-        <p>Hygienic steam for food processing, sterilisation, and cooking.</p>
-        <!-- <a href="#contact" class="ind-link">Read More →</a> -->
-      </div>
-    </div>
-    <div class="ind-card reveal">
-      <!-- <div class="ind-img"><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=500&q=80" alt="Chemical industry"/></div> -->
-      <div class="ind-body">
-        <h3>Chemical &amp; Pharma</h3>
-        <p>High-pressure steam &amp; thermic fluid for chemical and pharma plants.</p>
-        <!-- <a href="#contact" class="ind-link">Read More →</a> -->
-      </div>
-    </div>
-    <div class="ind-card reveal">
-      <!-- <div class="ind-img"><img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=500&q=80" alt="Engineering"/></div> -->
-      <div class="ind-body">
-        <h3>Engineering &amp; Fabrication</h3>
-        <p>Process heating for heat treatment and fabrication workshops.</p>
-        <!-- <a href="#contact" class="ind-link">Read More →</a> -->
-      </div>
-    </div>
-    <div class="ind-card reveal">
-      <!-- <div class="ind-img"><img src="https://images.unsplash.com/photo-1601933086379-76a9e3413b09?w=500&q=80" alt="Rice mills"/></div> -->
-      <div class="ind-body">
-        <h3>Rice Mills &amp; Grain</h3>
-        <p>Steam parboiling systems and dryers for grain processing units.</p>
-        <!-- <a href="#contact" class="ind-link">Read More →</a> -->
-      </div>
-    </div>
-    <div class="ind-card reveal">
-      <!-- <div class="ind-img"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&q=80" alt="Hotels hospitals"/></div> -->
-      <div class="ind-body">
-        <h3>Hotels &amp; Hospitals</h3>
-        <p>Central steam and hot water generation for large commercial buildings.</p>
-        <!-- <a href="#contact" class="ind-link">Read More →</a> -->
-      </div>
-    </div>
-    <div class="ind-card reveal">
-      <!-- <div class="ind-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80" alt="Rubber plastics"/></div> -->
-      <div class="ind-body">
-        <h3>Rubber &amp; Plastics</h3>
-        <p>Steam vulcanisation systems for rubber and plastics processing.</p>
-        <!-- <a href="#contact" class="ind-link">Read More →</a> -->
-      </div>
-    </div>
-    <div class="ind-card reveal">
-      <!-- <div class="ind-img"><img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=500&q=80" alt="Power utilities"/></div> -->
-      <div class="ind-body">
-        <h3>Power &amp; Utilities</h3>
-        <p>Waste heat recovery and co-generation boiler solutions.</p>
-        <!-- <a href="#contact" class="ind-link">Read More →</a> -->
-      </div>
-    </div>
+    <div class="ind-card reveal"><div class="ind-body"><h3>Textile &amp; Garments</h3><p>Steam supply for dyeing, drying, and calendering in textile mills.</p></div></div>
+    <div class="ind-card reveal"><div class="ind-body"><h3>Food &amp; Beverage</h3><p>Hygienic steam for food processing, sterilisation, and cooking.</p></div></div>
+    <div class="ind-card reveal"><div class="ind-body"><h3>Chemical &amp; Pharma</h3><p>High-pressure steam &amp; thermic fluid for chemical and pharma plants.</p></div></div>
+    <div class="ind-card reveal"><div class="ind-body"><h3>Engineering &amp; Fabrication</h3><p>Process heating for heat treatment and fabrication workshops.</p></div></div>
+    <div class="ind-card reveal"><div class="ind-body"><h3>Rice Mills &amp; Grain</h3><p>Steam parboiling systems and dryers for grain processing units.</p></div></div>
+    <div class="ind-card reveal"><div class="ind-body"><h3>Hotels &amp; Hospitals</h3><p>Central steam and hot water generation for large commercial buildings.</p></div></div>
+    <div class="ind-card reveal"><div class="ind-body"><h3>Rubber &amp; Plastics</h3><p>Steam vulcanisation systems for rubber and plastics processing.</p></div></div>
+    <div class="ind-card reveal"><div class="ind-body"><h3>Power &amp; Utilities</h3><p>Waste heat recovery and co-generation boiler solutions.</p></div></div>
   </div>
 </section>
 
 <!-- WHY US -->
 <section class="why-sec">
-  <div class="why-inner" style="max-width:1200px;margin:0 auto">
+  <div class="why-inner">
     <div class="why-img reveal">
       <img src="images/image7.jpg" alt="Boiler engineer at work"/>
       <div class="why-cert">
@@ -807,56 +572,17 @@ footer{background:#0f2348;padding:56px 20px 0}
   </div>
 </section>
 
-<!-- GALLERY
-<section class="gallery-sec" id="gallery">
-  <div class="sec-hdr reveal">
-    <div class="lbl">Our Work</div>
-    <h2>Project <span style="color:#f5a623">Gallery</span></h2>
-    <p>A look at our boiler erection, commissioning, and maintenance projects across Tamil Nadu.</p>
-    <div class="sec-divider"></div>
-  </div>
-  <div class="gal-grid" style="max-width:1200px;margin:0 auto">
-    <div class="gal-cell tall reveal">
-      <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=700&q=85" alt="Boiler erection"/>
-      <div class="gal-cap">Industrial Boiler Erection</div>
-    </div>
-    <div class="gal-cell reveal">
-      <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=85" alt="Steam boiler"/>
-      <div class="gal-cap">Steam Boiler System</div>
-    </div>
-    <div class="gal-cell reveal">
-      <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=85" alt="Pressure vessel"/>
-      <div class="gal-cap">Pressure Vessel Works</div>
-    </div>
-    <div class="gal-cell reveal">
-      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=85" alt="Pipeline work"/>
-      <div class="gal-cap">IBR Pipeline Installation</div>
-    </div>
-    <div class="gal-cell reveal">
-      <img src="https://images.unsplash.com/photo-1601933086379-76a9e3413b09?w=600&q=85" alt="Commissioning"/>
-      <div class="gal-cap">Boiler Commissioning</div>
-    </div>
-    <div class="gal-cell reveal">
-      <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=85" alt="Maintenance"/>
-      <div class="gal-cap">Maintenance &amp; AMC</div>
-    </div>
-    <div class="gal-cell reveal">
-      <img src="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=85" alt="Insulation"/>
-      <div class="gal-cap">Insulation &amp; Cladding</div>
-    </div>
-  </div>
-</section> -->
+<!-- QUOTE MODAL -->
 <div id="quoteModal" class="modal-overlay">
   <div class="modal-content">
     <span class="modal-close" onclick="closeQuoteModal()">&times;</span>
     <h3>Request a Quote</h3>
-    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">Provide your details for a technical site assessment or service estimate.</p>
-    
+    <p style="font-size:14px;color:#666;margin:10px 0 18px">Provide your details for a technical site assessment or service estimate.</p>
     <div class="fg-row">
-      <div class="fg"><label>Your Name</label><input type="text" id="m-name" placeholder="Full Name"></div>
-      <div class="fg"><label>Phone</label><input type="tel" id="m-phone" placeholder="+91"></div>
+      <div class="fg"><label>Your Name</label><input type="text" id="m-name" placeholder="Full Name"/></div>
+      <div class="fg"><label>Phone</label><input type="tel" id="m-phone" placeholder="+91"/></div>
     </div>
-    <div class="fg"><label>Company</label><input type="text" id="m-company" placeholder="Organization Name"></div>
+    <div class="fg"><label>Company</label><input type="text" id="m-company" placeholder="Organization Name"/></div>
     <div class="fg">
       <label>System Type</label>
       <select id="m-service">
@@ -867,13 +593,14 @@ footer{background:#0f2348;padding:56px 20px 0}
       </select>
     </div>
     <div class="fg"><label>Message</label><textarea id="m-msg" placeholder="Tell us about your boiler capacity/requirements..."></textarea></div>
-    <button class="btn-sub" onclick="submitModalEnquiry()">Submit Request →</button>
+    <button class="btn-sub" onclick="submitModal()">Submit Request →</button>
     <div class="form-ok" id="modal-ok">✅ Request sent! We will contact you shortly.</div>
   </div>
 </div>
+
 <!-- CONTACT -->
 <section class="contact-sec" id="contact">
-  <div style="max-width:1200px;margin:0 auto 48px" class="reveal">
+  <div style="max-width:1200px;margin:0 auto 40px" class="reveal">
     <div class="sec-hdr">
       <div class="lbl">Get In Touch</div>
       <h2>Contact <span>Us</span></h2>
@@ -888,9 +615,9 @@ footer{background:#0f2348;padding:56px 20px 0}
       <p style="font-size:13px;color:#999;margin-bottom:4px">Proprietor, Vel Tech Boiler System</p>
       <div class="c-detail-list">
         <div class="c-det"><div class="c-ico">📞</div><div><strong>Phone / WhatsApp</strong><span><a href="tel:9941759745">+91 99417 59745</a></span></div></div>
-        <div class="c-det"><div class="c-ico">📧</div><div><strong>Email Address</strong><span><a href="mailto:veltechboiler@gmail.com">veltechboiler@gmail.com</a></span></div></div>
-        <div class="c-det"><div class="c-ico">📍</div><div><strong>Office Address</strong><span>2nd Floor, No.5, Arignar Anna Street,<br>Thiruneermalai, Chrompet, Chennai – 600 044</span></div></div>
-        <div class="c-det"><div class="c-ico">🕐</div><div><strong>Business Hours</strong><span>Mon – Sat: 9:00 AM – 6:00 PM<br>Emergency: 24 × 7 Available</span></div></div>
+        <div class="c-det"><div class="c-ico">📧</div><div><strong>Email Address</strong><span><a href="mailto:vtbs@vtbschennai.com">vtbs@vtbschennai.com</a></span></div></div>
+        <div class="c-det"><div class="c-ico">📍</div><div><strong>Office Address</strong><span>2nd Floor, No.5, Arignar Anna Street,<br/>Thiruneermalai, Chrompet, Chennai – 600 044</span></div></div>
+        <div class="c-det"><div class="c-ico">🕐</div><div><strong>Business Hours</strong><span>Mon – Sat: 9:00 AM – 6:00 PM<br/>Emergency: 24 × 7 Available</span></div></div>
         <div class="c-det"><div class="c-ico">🗺️</div><div><strong>Directions</strong><span><a href="https://maps.google.com/?q=Thiruneermalai,Chrompet,Chennai+600044" target="_blank">Open in Google Maps →</a></span></div></div>
       </div>
     </div>
@@ -927,7 +654,7 @@ footer{background:#0f2348;padding:56px 20px 0}
 <footer>
   <div class="footer-grid">
     <div class="f-about">
-      <div class="logo-box" style="width:50px;height:50px;border-radius:7px;background:linear-gradient(135deg,#e8282a,#c01a1c);display:flex;align-items:center;justify-content:center;font-family:'Raleway',sans-serif;font-size:13px;font-weight:900;color:#fff;letter-spacing:1px;margin-bottom:14px">VTBS</div>
+      <div class="logo-box" style="width:50px;height:50px;border-radius:7px;margin-bottom:14px">VTBS</div>
       <div class="f-name">Vel Tech Boiler System</div>
       <p>Chennai's trusted specialist in industrial boiler erection, commissioning, and maintenance. Serving Tamil Nadu since 2008 with IBR-certified precision and 24/7 support.</p>
     </div>
@@ -938,7 +665,6 @@ footer{background:#0f2348;padding:56px 20px 0}
         <li><a href="#about">About Us</a></li>
         <li><a href="#services">Our Services</a></li>
         <li><a href="#industries">Industries</a></li>
-        <!-- <li><a href="#gallery">Gallery</a></li> -->
         <li><a href="#contact">Contact Us</a></li>
       </ul>
     </div>
@@ -976,7 +702,6 @@ footer{background:#0f2348;padding:56px 20px 0}
   </div>
   <div class="footer-bottom">
     <p>© 2026 <strong style="color:rgba(255,255,255,.5)">Vel Tech Boiler System (VTBS)</strong>. All Rights Reserved.</p>
-    <!-- <p>Chrompet, Chennai – 600 044, Tamil Nadu, India</p> -->
   </div>
 </footer>
 
@@ -984,20 +709,35 @@ footer{background:#0f2348;padding:56px 20px 0}
 <a class="float-cta" href="tel:9941759745" title="Call Now">📞</a>
 
 <script>
-/* SLIDER */
+/* ── HAMBURGER MENU ── */
+function toggleMenu(){
+  var menu=document.getElementById('navMenu');
+  var btn=document.getElementById('hamburger');
+  var isOpen=menu.classList.toggle('open');
+  btn.classList.toggle('open',isOpen);
+}
+function closeMob(){
+  document.getElementById('navMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+
+/* ── SLIDER ── */
 var slides=document.querySelectorAll('.slide');
 var dots=document.querySelectorAll('.dot');
 var cur=0,timer;
 function goSlide(n){
-  slides[cur].classList.remove('active');dots[cur].classList.remove('active');
+  slides[cur].classList.remove('active');
+  dots[cur].classList.remove('active');
   cur=n;
-  slides[cur].classList.add('active');dots[cur].classList.add('active');
-  clearInterval(timer);timer=setInterval(function(){changeSlide(1)},5000);
+  slides[cur].classList.add('active');
+  dots[cur].classList.add('active');
+  clearInterval(timer);
+  timer=setInterval(function(){changeSlide(1);},5000);
 }
-function changeSlide(d){goSlide((cur+d+slides.length)%slides.length)}
-timer=setInterval(function(){changeSlide(1)},5000);
+function changeSlide(d){goSlide((cur+d+slides.length)%slides.length);}
+timer=setInterval(function(){changeSlide(1);},5000);
 
-/* FORM */
+/* ── CONTACT FORM ── */
 function doSubmit(){
   var n=document.getElementById('f-name').value.trim();
   var p=document.getElementById('f-phone').value.trim();
@@ -1007,38 +747,32 @@ function doSubmit(){
   document.getElementById('f-service').value='';
 }
 
-/* SCROLL REVEAL */
+/* ── MODAL ── */
+function openQuoteModal(){
+  document.getElementById('quoteModal').style.display='block';
+  document.body.style.overflow='hidden';
+}
+function closeQuoteModal(){
+  document.getElementById('quoteModal').style.display='none';
+  document.body.style.overflow='';
+}
+function submitModal(){
+  var n=document.getElementById('m-name').value.trim();
+  var p=document.getElementById('m-phone').value.trim();
+  if(!n||!p){alert('Please enter your name and phone number.');return;}
+  document.getElementById('modal-ok').style.display='block';
+  ['m-name','m-phone','m-company','m-msg'].forEach(function(id){document.getElementById(id).value='';});
+}
+window.addEventListener('click',function(e){
+  var modal=document.getElementById('quoteModal');
+  if(e.target===modal) closeQuoteModal();
+});
+
+/* ── SCROLL REVEAL ── */
 var obs=new IntersectionObserver(function(entries){
   entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('revealed');});
 },{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
-/* MODAL FUNCTIONS */
-function openQuoteModal() {
-  document.getElementById('quoteModal').style.display = 'block';
-  document.body.style.overflow = 'hidden'; // Prevent background scroll
-}
-
-function closeQuoteModal() {
-  document.getElementById('quoteModal').style.display = 'none';
-  document.body.style.overflow = 'auto'; // Restore scroll
-}
-
-// Close modal if clicking outside the box
-window.onclick = function(event) {
-  let modal = document.getElementById('quoteModal');
-  if (event.target == modal) closeQuoteModal();
-}
-
-function submitModalEnquiry() {
-  const name = document.getElementById('m-name').value;
-  if(!name) { alert('Please enter your name'); return; }
-  
-  document.getElementById('modal-ok').style.display = 'block';
-  setTimeout(() => {
-    closeQuoteModal();
-    document.getElementById('modal-ok').style.display = 'none';
-  }, 2500);
-}
 </script>
 </body>
 </html>
