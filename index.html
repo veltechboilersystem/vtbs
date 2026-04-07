@@ -644,7 +644,7 @@ footer{background:#0f2348;padding:56px 20px 0}
         </select>
       </div>
       <div class="fg"><label>Message &amp; Requirements</label><textarea id="f-msg" placeholder="Describe your boiler type, capacity, and specific requirements…"></textarea></div>
-      <button class="btn-sub" onclick="doSubmit()">Submit Enquiry →</button>
+      <button class="btn-sub" onclick="submitModal()">Submit Enquiry →</button>
       <div class="form-ok" id="form-ok">✅ Thank you! We'll contact you within 24 hours.</div>
     </div>
   </div>
@@ -738,14 +738,14 @@ function changeSlide(d){goSlide((cur+d+slides.length)%slides.length);}
 timer=setInterval(function(){changeSlide(1);},5000);
 
 /* ── CONTACT FORM ── */
-function doSubmit(){
-  var n=document.getElementById('f-name').value.trim();
-  var p=document.getElementById('f-phone').value.trim();
-  if(!n||!p){alert('Please enter your name and phone number.');return;}
-  document.getElementById('form-ok').style.display='block';
-  ['f-name','f-phone','f-company','f-msg'].forEach(function(id){document.getElementById(id).value='';});
-  document.getElementById('f-service').value='';
-}
+// function doSubmit(){
+//   var n=document.getElementById('f-name').value.trim();
+//   var p=document.getElementById('f-phone').value.trim();
+//   if(!n||!p){alert('Please enter your name and phone number.');return;}
+//   document.getElementById('form-ok').style.display='block';
+//   ['f-name','f-phone','f-company','f-msg'].forEach(function(id){document.getElementById(id).value='';});
+//   document.getElementById('f-service').value='';
+// }
 
 /* ── MODAL ── */
 function openQuoteModal(){
