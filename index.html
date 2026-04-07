@@ -802,13 +802,13 @@ function submitModal() {
   // Optional: Auto-close the modal after a delay
   setTimeout(closeQuoteModal, 3000);
 }
-function dosubmit() {
-  // 1. Get values from the modal fields
-  var name = document.getElementById('m-name').value.trim();
-  var phone = document.getElementById('m-phone').value.trim();
-  var company = document.getElementById('m-company').value.trim() || "Not provided";
-  var service = document.getElementById('m-service').value;
-  var msg = document.getElementById('m-msg').value.trim() || "No additional details";
+function doSubmit() {
+  // 1. Get values from the Contact Form fields (using 'f-' IDs)
+  var name = document.getElementById('f-name').value.trim();
+  var phone = document.getElementById('f-phone').value.trim();
+  var company = document.getElementById('f-company').value.trim() || "Not provided";
+  var service = document.getElementById('f-service').value || "General Enquiry";
+  var msg = document.getElementById('f-msg').value.trim() || "No additional details";
 
   // 2. Basic Validation
   if (!name || !phone) {
@@ -817,14 +817,15 @@ function dosubmit() {
   }
 
   // 3. Construct the WhatsApp Message
-  var whatsappNumber = "9941759745"; // Your phone number with country code (91 for India)
+  // Note: 91 is the country code for India
+  var whatsappNumber = "919941759745"; 
   
-  var text = "*New Quote Request - VTBS Website*" + "%0a" + 
-             "*Name:* " + name + "%0a" +
-             "*Phone:* " + phone + "%0a" +
-             "*Company:* " + company + "%0a" +
-             "*Service:* " + service + "%0a" +
-             "*Message:* " + msg;
+  var text = "*New Enquiry - VTBS Website*" + "%0a" + 
+             "*Name:* " + encodeURIComponent(name) + "%0a" +
+             "*Phone:* " + encodeURIComponent(phone) + "%0a" +
+             "*Company:* " + encodeURIComponent(company) + "%0a" +
+             "*Service:* " + encodeURIComponent(service) + "%0a" +
+             "*Message:* " + encodeURIComponent(msg);
 
   // 4. Create the WhatsApp URL
   var wpUrl = "https://wa.me/" + whatsappNumber + "?text=" + text;
@@ -832,20 +833,22 @@ function dosubmit() {
   // 5. Open WhatsApp in a new tab
   window.open(wpUrl, '_blank').focus();
 
-  // 6. Show success message on the website and clear fields
-  document.getElementById('modal-ok').style.display = 'block';
-  ['m-name', 'm-phone', 'm-company', 'm-msg'].forEach(function(id) {
-    document.getElementById(id).value = '';
+  // 6. Show success message on the website
+  var successMsg = document.getElementById('form-ok');
+  if(successMsg) {
+    successMsg.style.display = 'block';
+  }
+
+  // 7. Clear the fields
+  ['f-name', 'f-phone', 'f-company', 'f-msg'].forEach(function(id) {
+    var field = document.getElementById(id);
+    if(field) field.value = '';
   });
-
-  // Optional: Auto-close the modal after a delay
-  setTimeout(closeQuoteModal, 3000);
+  
+  // Reset the dropdown
+  var serviceField = document.getElementById('f-service');
+  if(serviceField) serviceField.value = '';
 }
-window.addEventListener('click',function(e){
-  var modal=document.getElementById('quoteModal');
-  if(e.target===modal) closeQuoteModal();
-});
-
 /* ── SCROLL REVEAL ── */
 var obs=new IntersectionObserver(function(entries){
   entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('revealed');});
