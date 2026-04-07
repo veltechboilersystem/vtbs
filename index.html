@@ -756,12 +756,51 @@ function closeQuoteModal(){
   document.getElementById('quoteModal').style.display='none';
   document.body.style.overflow='';
 }
-function submitModal(){
-  var n=document.getElementById('m-name').value.trim();
-  var p=document.getElementById('m-phone').value.trim();
-  if(!n||!p){alert('Please enter your name and phone number.');return;}
-  document.getElementById('modal-ok').style.display='block';
-  ['m-name','m-phone','m-company','m-msg'].forEach(function(id){document.getElementById(id).value='';});
+// function submitModal(){
+//   var n=document.getElementById('m-name').value.trim();
+//   var p=document.getElementById('m-phone').value.trim();
+//   if(!n||!p){alert('Please enter your name and phone number.');return;}
+//   document.getElementById('modal-ok').style.display='block';
+//   ['m-name','m-phone','m-company','m-msg'].forEach(function(id){document.getElementById(id).value='';});
+// }
+function submitModal() {
+  // 1. Get values from the modal fields
+  var name = document.getElementById('m-name').value.trim();
+  var phone = document.getElementById('m-phone').value.trim();
+  var company = document.getElementById('m-company').value.trim() || "Not provided";
+  var service = document.getElementById('m-service').value;
+  var msg = document.getElementById('m-msg').value.trim() || "No additional details";
+
+  // 2. Basic Validation
+  if (!name || !phone) {
+    alert('Please enter your name and phone number.');
+    return;
+  }
+
+  // 3. Construct the WhatsApp Message
+  var whatsappNumber = "919941759745"; // Your phone number with country code (91 for India)
+  
+  var text = "*New Quote Request - VTBS Website*" + "%0a" + 
+             "*Name:* " + name + "%0a" +
+             "*Phone:* " + phone + "%0a" +
+             "*Company:* " + company + "%0a" +
+             "*Service:* " + service + "%0a" +
+             "*Message:* " + msg;
+
+  // 4. Create the WhatsApp URL
+  var wpUrl = "https://wa.me/" + whatsappNumber + "?text=" + text;
+
+  // 5. Open WhatsApp in a new tab
+  window.open(wpUrl, '_blank').focus();
+
+  // 6. Show success message on the website and clear fields
+  document.getElementById('modal-ok').style.display = 'block';
+  ['m-name', 'm-phone', 'm-company', 'm-msg'].forEach(function(id) {
+    document.getElementById(id).value = '';
+  });
+
+  // Optional: Auto-close the modal after a delay
+  setTimeout(closeQuoteModal, 3000);
 }
 window.addEventListener('click',function(e){
   var modal=document.getElementById('quoteModal');
